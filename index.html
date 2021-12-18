@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css">
+    <style type="text/css"> 
+
+  .banner {position: relative; width: 300px; height:350px; top: 30px; buttom: 30px; margin:0 auto; padding:0; overflow: hidden;}
+  .banner ul {position: absolute; margin: 0px; padding:0; list-style: none; }
+  .banner ul li {float: left; width: 300px; height: 350px; margin:0; padding:0;}
+</style>
+   
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+       <script language="JavaScript">
+
+  $(document).ready(function() {
+    var $banner = $(".banner").find("ul");
+
+    var $bannerWidth = $banner.children().outerWidth();//이미지의 폭
+    var $bannerHeight = $banner.children().outerHeight(); // 높이
+    var $length = $banner.children().length;//이미지의 갯수
+    var rollingId;
+
+    rollingId = setInterval(function() { rollingStart(); }, 3000);
+    
+    function rollingStart() {
+      $banner.css("width", $bannerWidth * $length + "px");
+      $banner.css("height", $bannerHeight + "px");
+    
+      $banner.animate({left: - $bannerWidth + "px"}, 1500, function() { //숫자는 
+        $(this).append("<li>" + $(this).find("li:first").html() + "</li>");
+        
+        $(this).find("li:first").remove();
+        //다음 움직임을 위해서 배너 좌측의 위치값을 초기화 한다.
+        $(this).css("left", 0);
+        //이 과정을 반복하면서 계속 롤링하는 배너를 만들 수 있다.
+      });
+    }
+  }); 
+
+</script>
+    <title>영화 예매</title>
+    <style>
+      .nav {
+        background: rgba(255,155,233);
+        height: 150px;
+        border-bottom: 1px solid black;
+        display: flex;
+        align-items: center;
+      }
+
+      .nav-right-items {
+        display: flex;
+        margin-left: auto;
+      }
+
+      .nav-item {
+        margin-left: 50px;
+      }
+
+
+      .title{
+        font-size: 5.5rem;
+        font-weight: bold;
+        text-align: center;
+      }
+
+      .subtitle1 {
+        margin-top: 30px;
+        font-size: 1.25rem;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      .subtitle2 {
+        margin-top: 10px;
+        font-size: 1.25rem;
+        font-weight: 300;
+        text-align: center;
+      }
+
+      .main {
+        width: 1000px;
+        margin: 0 auto;
+        margin-top:60px; 
+      }
+
+      .prices {
+        display: flex;
+      }
+
+      .price-item {
+        width: 800px;
+        height: 500px;
+        border: 1px;
+        margin: 30px;
+        border-radius: 6px;
+        text-align: center;
+      }
+
+      .price-item-title {
+        background: rgba(155,255,255);
+        text-align: center;
+        font-weight: bold;
+        height: 53px;
+        line-height: 53px;
+        font-size: 1.2rem;
+        border-bottom: 1px rgba(255,155,133); 
+        }
+      
+      .price-item-price {
+        text-align:center;
+        font-size: 1rem;
+        padding: 20px;
+      }
+
+      .price-item-detail {
+        text-align:center;
+        font-size: 1rem;
+        padding: 20px;
+      }
+
+      .price-item-button {
+        font-size: 1.25rem;
+        color: #007bff;
+        background-image: none;
+        background-color: transparent;
+        border-color: #007bff;
+        border-radius: .3rem;
+        padding: .5rem 1rem;
+        line-height: 1.5;
+        text-align: center;
+        margin-top: 20px;
+      }
+
+
+
+    </style>
+  </head>
+  <body>
+  
+    <div class="nav">
+    </div>
+    <div class="main">
+      <div class="title">
+        영화 추천 
+      </div>
+      <div class="subtitle1">
+        즐거움의 시작 영화 예매
+      </div>
+      <div class="subtitle2">
+        The Beginning of Fun Advance Sales of Movies
+      </div>
+    <div class="contents">
+    <div class="banner">
+      <ul>
+        <li><img src="im1.png"" width="300" height="350px"></li>
+        <li><img src="im2.png" width="300" height="350px"></li>
+        <li><img src="im3.png" width="300" height="350px"></li>
+        <li><img src="im4.png" width="300" height="350px"></li>
+
+      </ul>
+    </div>
+  </div>
+
+    </div>
+      <div class="prices">
+       <div class="price-item">
+         <div class="price-item-title">
+          CGV
+         </div>
+         <div class="price-item-price">
+           C U L T U R E P L E X
+         </div>
+         <div class="price-item-detail">
+           영화 그 이상의 감동
+         </div>
+         <button class="price-item-button" type="button" onclick="location.href='https://www.cgv.co.kr/?NaPm=ct%3Dkx8eb15u%7Cci%3Dcheckout%7Ctr%3Dds%7Ctrx%3D%7Chk%3D2e16a65d7910f869abca00059516af6f0772aecd'">
+           이동하기
+         </button>
+        </div>
+       <div class="price-item">
+         <div class="price-item-title">
+           롯데 시네마 
+         </div>
+         <div class="price-item-price">
+           LOTTE CLNEMA
+         </div>
+        <div class="price-item-detail">
+           지역별 극장 소개
+         </div>
+      <button class="price-item-button" type="button" onclick="location.href='https://www.lottecinema.co.kr/NLCHS'">
+           이동하기
+         </button>
+         </button>
+        </div>
+       <div class="price-item">
+         <div class="price-item-title">
+           메가박스
+         </div>
+         <div class="price-item-price">
+           MagaBox
+         </div>
+         <div class="price-item-detail" >
+           복합영화상영관
+         </div>
+            <button class="price-item-button" type="button" onclick="location.href='https://www.megabox.co.kr/?NaPm=ct=kx8egtdx|ci=checkout|tr=ds|trx=|hk=0972ea19651bdc1a3ee38188ad87c331d76a1699'">
+           이동하기
+         </button>
+        </div>
+       </div>
+    <script src ="main.js"></script>
+  </body>
+</html>
